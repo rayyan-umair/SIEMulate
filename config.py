@@ -1,13 +1,13 @@
 """
-SIEMulate — Configuration
-config.py — Settings, environment variables, .env file loading
+SIEMulate - Configuration
+config.py - Settings, environment variables, .env file loading
 
 Author  : Rayyan Umair
 Date    : 2026-05-13
 Purpose : Centralised configuration for SIEMulate. All settings are
           read from environment variables or a .env file with sensible
           defaults. Every setting is documented. Nothing is hardcoded
-          anywhere else in the codebase — always import from here.
+          anywhere else in the codebase - always import from here.
 Contact : rayyanxumair@gmail.com
 GitHub  : github.com/rayyan-umair/SIEMulate
 
@@ -73,7 +73,7 @@ class Settings(BaseSettings):
     )
     debug: bool = Field(
         default=False,
-        description="Enable debug mode — verbose logging, auto-reload",
+        description="Enable debug mode - verbose logging, auto-reload",
     )
 
     # ── Server ────────────────────────────────────────────────────────────────
@@ -84,7 +84,7 @@ class Settings(BaseSettings):
     )
     port: int = Field(
         default=8002,
-        description="Port to bind the FastAPI server (8002 — LogClaw=8000, PacketStrike=8001)",
+        description="Port to bind the FastAPI server (8002 - LogClaw=8000, PacketStrike=8001)",
     )
 
     # ── Storage ───────────────────────────────────────────────────────────────
@@ -118,7 +118,7 @@ class Settings(BaseSettings):
     )
     rules_enabled: bool = Field(
         default=True,
-        description="Master switch — disable to run in passive/replay-only mode",
+        description="Master switch - disable to run in passive/replay-only mode",
     )
 
     # ── Risk Scoring ──────────────────────────────────────────────────────────
@@ -175,26 +175,26 @@ class Settings(BaseSettings):
     )
     replay_speed_multiplier: float = Field(
         default=10.0,
-        description="Speed multiplier for replay — 10x means 10 seconds of logs per real second",
+        description="Speed multiplier for replay - 10x means 10 seconds of logs per real second",
     )
     replay_batch_size: int = Field(
         default=100,
         description="Number of log events to process per replay tick",
     )
 
-    # ── Integration — NetRaptor Ecosystem ─────────────────────────────────────
+    # ── Integration - NetRaptor Ecosystem ─────────────────────────────────────
 
     logclaw_api: str = Field(
         default="http://localhost:8000",
-        description="LogClaw API base URL — log ingestion source",
+        description="LogClaw API base URL - log ingestion source",
     )
     packetstrike_api: str = Field(
         default="http://localhost:8001",
-        description="PacketStrike API base URL — network behavior source",
+        description="PacketStrike API base URL - network behavior source",
     )
     dnstalon_api: str = Field(
         default="http://localhost:8003",
-        description="DNStalon API base URL — DNS behavior source (future)",
+        description="DNStalon API base URL - DNS behavior source (future)",
     )
     ecosystem_poll_interval: int = Field(
         default=30,
@@ -202,7 +202,7 @@ class Settings(BaseSettings):
     )
     ecosystem_enabled: bool = Field(
         default=False,
-        description="Enable live polling of LogClaw/PacketStrike — False for standalone mode",
+        description="Enable live polling of LogClaw/PacketStrike - False for standalone mode",
     )
 
     # ── WebSocket ─────────────────────────────────────────────────────────────
@@ -232,7 +232,7 @@ class Settings(BaseSettings):
     )
     ai_model: Optional[str] = Field(
         default=None,
-        description="Model override — uses provider default if not set",
+        description="Model override - uses provider default if not set",
     )
     ai_max_tokens: int = Field(
         default=800,
@@ -251,11 +251,11 @@ class Settings(BaseSettings):
 
     secret_key: str = Field(
         default="change-this-in-production-siemulate-secret-key-2026",
-        description="Secret key for JWT signing — MUST be changed in production",
+        description="Secret key for JWT signing - MUST be changed in production",
     )
     allow_anonymous: bool = Field(
         default=True,
-        description="Allow unauthenticated API access — True for local-only deployments",
+        description="Allow unauthenticated API access - True for local-only deployments",
     )
 
     # ── Validators ────────────────────────────────────────────────────────────
@@ -329,9 +329,9 @@ class Settings(BaseSettings):
 
 def generate_env_example():
     lines = [
-        "# SIEMulate — Environment Configuration",
+        "# SIEMulate - Environment Configuration",
         "# Copy this file to .env and fill in your values",
-        "# Built by Rayyan Umair — Context is the only defense.",
+        "# Built by Rayyan Umair - Context is the only defense.",
         "",
         "# ── Application ──────────────────────────────────────",
         "LOG_LEVEL=INFO",

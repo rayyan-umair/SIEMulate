@@ -1,6 +1,6 @@
 """
-SIEMulate — Sigma Detection Engine
-sigma_engine.py — Sigma rule loading, parsing, and event matching
+SIEMulate - Sigma Detection Engine
+sigma_engine.py - Sigma rule loading, parsing, and event matching
 
 Author  : Rayyan Umair
 Date    : 2026-05-13
@@ -9,7 +9,7 @@ Purpose : Loads Sigma YAML rules from disk via pySigma, compiles them
           event against all loaded rules. Returns a list of matching
           SigmaRule objects for each event. No alert logic lives here.
           No entity logic lives here. No storage lives here.
-          This layer only detects — it does not correlate or score.
+          This layer only detects - it does not correlate or score.
 Contact : rayyanxumair@gmail.com
 GitHub  : github.com/rayyan-umair/SIEMulate
 
@@ -70,7 +70,7 @@ def _parse_mitre_from_tags(tags: List[str]) -> MitreMapping:
     for tag in tags:
         tag_lower = tag.lower()
 
-        # Technique — attack.tNNNN or attack.tNNNN.NNN
+        # Technique - attack.tNNNN or attack.tNNNN.NNN
         if re.match(r"attack\.t\d{4}(\.\d{3})?$", tag_lower):
             raw = tag_lower.replace("attack.", "").upper()
             technique_id = raw
@@ -123,7 +123,7 @@ class ConditionEvaluator:
         - field|startswith     (prefix match)
         - field|endswith       (suffix match)
         - field|re             (regex match)
-        - field|cidr           (CIDR range — basic)
+        - field|cidr           (CIDR range - basic)
         - null field checks
         - condition: keywords (selection, filter, 1 of, all of)
         - NOT / AND / OR logic
@@ -255,7 +255,7 @@ class ConditionEvaluator:
         field    = parts[0].strip()
         modifier = parts[1].strip().lower() if len(parts) > 1 else "exact"
 
-        # Get actual value from event — case-insensitive key lookup
+        # Get actual value from event - case-insensitive key lookup
         actual = None
         for key, val in event.items():
             if key.lower() == field.lower():
@@ -387,7 +387,7 @@ class SigmaEngine:
     each into a ConditionEvaluator, and evaluates every inbound
     event against all loaded rules.
 
-    Rules are hot-reloaded on a configurable interval — no restart
+    Rules are hot-reloaded on a configurable interval - no restart
     required after adding or modifying rules.
 
     Thread safety: a single lock protects the rule registry.
@@ -465,7 +465,7 @@ class SigmaEngine:
         return loaded
 
     def reload_rules(self) -> int:
-        """Hot-reload rules from disk — called by the background scheduler."""
+        """Hot-reload rules from disk - called by the background scheduler."""
         logger.debug("Hot-reloading Sigma rules...")
         return self.load_rules()
 
@@ -475,7 +475,7 @@ class SigmaEngine:
         """
         Evaluate an inbound event against all loaded Sigma rules.
         Returns a list of SigmaRule objects that matched.
-        Never raises — evaluation errors are caught per-rule.
+        Never raises - evaluation errors are caught per-rule.
         """
         if not self._settings.rules_enabled:
             return []
@@ -510,7 +510,7 @@ class SigmaEngine:
     def _flatten_event(self, event: InboundEvent) -> Dict[str, Any]:
         """
         Flatten an InboundEvent into a single-level dict for Sigma matching.
-        Sigma rules reference fields by name — the flat dict maps all
+        Sigma rules reference fields by name - the flat dict maps all
         nested event fields to top-level keys for uniform matching.
         """
         flat: Dict[str, Any] = {}
@@ -541,7 +541,7 @@ class SigmaEngine:
         flat["technique"]      = event.mitre.technique_id or ""
         flat["tactic"]         = event.mitre.tactic or ""
 
-        # Raw payload — merge all keys to top level for field matching
+        # Raw payload - merge all keys to top level for field matching
         for key, val in event.raw_payload.items():
             if key not in flat:
                 flat[key] = val

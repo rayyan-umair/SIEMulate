@@ -1,11 +1,11 @@
 """
-SIEMulate — Database Layer
-database.py — DuckDB persistence, schema management, Parquet archiving
+SIEMulate - Database Layer
+database.py - DuckDB persistence, schema management, Parquet archiving
 
 Author  : Rayyan Umair
 Date    : 2026-05-13
 Purpose : All storage operations for SIEMulate. DuckDB acts as the
-          persistent intelligence store — fast enough for real-time
+          persistent intelligence store - fast enough for real-time
           alert ingestion, powerful enough for SQL JOINs between
           entities, alerts, and attack chains for investigation.
           Parquet handles long-term compressed historical archives.
@@ -203,7 +203,7 @@ class Database:
     alerts, chains, entities, rules, replay_jobs.
 
     One instance is created at startup and shared across the application.
-    All methods are synchronous — DuckDB is not async-native.
+    All methods are synchronous - DuckDB is not async-native.
 
     Usage:
         db = Database(settings)
@@ -609,7 +609,7 @@ class Database:
         """
         Execute a raw SQL SELECT for analyst investigation.
         Auto-generated HOW queries from the 5W+H engine use this.
-        SELECT only — mutations are blocked.
+        SELECT only - mutations are blocked.
         """
         self._require_connection()
         assert self._conn is not None

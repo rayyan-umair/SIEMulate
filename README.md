@@ -4,7 +4,7 @@
 
 The judgment layer that transforms raw sensor data into **attack chain narratives instead of alert noise**.
 
-Built by Rayyan Umair — *Technology evolves quickly. Responsibility does not.*
+Built by Rayyan Umair - *Technology evolves quickly. Responsibility does not.*
 
 ---
 
@@ -21,8 +21,8 @@ SIEMulate ingests structured events from LogClaw, PacketStrike, and DNStalon, ev
 Every detection becomes a **human-readable escalation narrative**:
 
 ### Instead of raw rule matches:
-SIGMA MATCH: suspicious_powershell.yml — host: WKSTN-04
-SIGMA MATCH: lateral_movement_smb.yml — host: WKSTN-04
+SIGMA MATCH: suspicious_powershell.yml - host: WKSTN-04
+SIGMA MATCH: lateral_movement_smb.yml - host: WKSTN-04
 
 ### You get:
 
@@ -172,7 +172,7 @@ SIEMulate maintains a risk score (0–100) per entity.
 | 0–24  | LOW      | Normal activity, no detections           |
 | 25–49 | MEDIUM   | One or more rules fired                  |
 | 50–74 | HIGH     | Multiple rules, possible chain forming   |
-| 75+   | CRITICAL | Attack chain confirmed — immediate action|
+| 75+   | CRITICAL | Attack chain confirmed - immediate action|
 
 Risk scores decay over time. Quiet entities cool down automatically.
 
@@ -186,13 +186,13 @@ When two or more distinct Sigma rules fire on the same entity within the 15-minu
 
 Initial Access
 ↓
-Credential Abuse         [T1110 — 10:22 UTC]
+Credential Abuse         [T1110 - 10:22 UTC]
 ↓
-Suspicious Execution     [T1059 — 10:24 UTC]
+Suspicious Execution     [T1059 - 10:24 UTC]
 ↓
-Privilege Escalation     [T1068 — 10:31 UTC]
+Privilege Escalation     [T1068 - 10:31 UTC]
 ↓
-Lateral Movement         [T1021 — 10:38 UTC]
+Lateral Movement         [T1021 - 10:38 UTC]
 
 Each stage links back to:
 
@@ -208,7 +208,7 @@ Every alert is transformed into:
 
 | Component | SIEMulate Output |
 |-----------|-----------------|
-| **WHO**   | Entity name + risk score (e.g. "admin — Risk 82/100") |
+| **WHO**   | Entity name + risk score (e.g. "admin - Risk 82/100") |
 | **WHAT**  | Plain-English Sigma rule summary |
 | **WHERE** | Originating host + target asset |
 | **WHEN**  | Chain start time vs. current detection timestamp |
@@ -232,7 +232,7 @@ Supported:
 
 # Replay Engine
 
-Upload a `.json` file of historic log events and SIEMulate replays them through the full detection pipeline — firing alerts, building chains, and scoring entities as if the attack were happening live.
+Upload a `.json` file of historic log events and SIEMulate replays them through the full detection pipeline - firing alerts, building chains, and scoring entities as if the attack were happening live.
 
 Use cases:
 
@@ -249,7 +249,7 @@ AI is NOT required.
 
 When enabled, it acts as:
 
-> a SOC analyst assistant — not a detector
+> a SOC analyst assistant - not a detector
 
 It can:
 
@@ -280,13 +280,13 @@ SIEMulate is the **detection intelligence layer** of the NetRaptor platform.
 
 It consumes behavioral data from:
 
-* **LogClaw** — structured log events (port 8000)
-* **PacketStrike** — network behavior strikes (port 8001)
-* **DNStalon** — DNS behavioral signals (port 8003)
+* **LogClaw** - structured log events (port 8000)
+* **PacketStrike** - network behavior strikes (port 8001)
+* **DNStalon** - DNS behavioral signals (port 8003)
 
 And feeds enriched attack context to:
 
-* **TalonResponse** — incident response terminal
+* **TalonResponse** - incident response terminal
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Part of the NetRaptor ecosystem.

@@ -1,6 +1,6 @@
 """
-SIEMulate — Correlation Engine
-correlation.py — Entity state tracking, attack chain detection,
+SIEMulate - Correlation Engine
+correlation.py - Entity state tracking, attack chain detection,
                  risk scoring, escalation narratives, 5W+H generation
 
 Author  : Rayyan Umair
@@ -10,7 +10,7 @@ Purpose : The judgment layer of SIEMulate. Receives Alert objects from
           of a larger attack chain. Maintains live entity profiles,
           accumulates risk scores, detects chain escalations, and
           generates the full 5W+H investigation narrative for every
-          alert — including the auto-generated DuckDB SQL HOW query.
+          alert - including the auto-generated DuckDB SQL HOW query.
           No Sigma logic lives here. No storage logic lives here.
           This layer only correlates, scores, and narrates.
 
@@ -108,7 +108,7 @@ def _build_chain_narrative(chain: AttackChain) -> str:
 
     if chain.is_escalated:
         lines.append(
-            f"Entity risk score reached {chain.risk_score}/100 — "
+            f"Entity risk score reached {chain.risk_score}/100 - "
             f"CRITICAL escalation triggered."
         )
 
@@ -118,7 +118,7 @@ def _build_chain_narrative(chain: AttackChain) -> str:
         ts    = link.timestamp.strftime("%H:%M:%S UTC")
         mitre = f" [{link.mitre_id}]" if link.mitre_id else ""
         lines.append(
-            f"  {link.position}. {ts} — {link.chain_stage.value}{mitre}: "
+            f"  {link.position}. {ts} - {link.chain_stage.value}{mitre}: "
             f"{link.rule_title}"
         )
 
@@ -155,7 +155,7 @@ def _build_fivewh(
     if rule.mitre.technique_id:
         mitre_part = f" [{rule.mitre.technique_id}]"
     if rule.mitre.tactic:
-        mitre_part += f" — {rule.mitre.tactic}"
+        mitre_part += f" - {rule.mitre.tactic}"
 
     what = (
         f"{rule.plain_english}{mitre_part}. "
@@ -180,7 +180,7 @@ def _build_fivewh(
         chain_start = chain.started_at.strftime("%H:%M:%S UTC")
         elapsed     = chain.duration_minutes
         when = (
-            f"{ts_now} — Chain started at {chain_start} "
+            f"{ts_now} - Chain started at {chain_start} "
             f"({elapsed:.1f} minutes ago, "
             f"step {chain.link_count} of chain)"
         )
@@ -260,7 +260,7 @@ class CorrelationEngine:
     Receives (event, matched_rules) pairs from the pipeline and:
 
       1. Gets or creates the EntityProfile for the event's entity
-      2. Applies cooldown — skips re-alerts within cooldown window
+      2. Applies cooldown - skips re-alerts within cooldown window
       3. Builds the full Alert with 5W+H narrative
       4. Accumulates risk score on the entity
       5. Checks if an attack chain is forming or extending
@@ -299,7 +299,7 @@ class CorrelationEngine:
 
     def start(self) -> None:
         """Load existing entities and chains from DuckDB into memory."""
-        logger.info("CorrelationEngine starting — loading state from database...")
+        logger.info("CorrelationEngine starting - loading state from database...")
 
         entity_rows = self._db.get_all_entities(limit=10_000)
         for row in entity_rows:
@@ -323,14 +323,14 @@ class CorrelationEngine:
                 logger.debug(f"Failed to load chain: {e}")
 
         logger.info(
-            f"CorrelationEngine ready — "
+            f"CorrelationEngine ready - "
             f"{len(self._entities)} entities, "
             f"{len(self._chains)} chains loaded."
         )
 
     def stop(self) -> None:
         """Flush all state to DuckDB on shutdown."""
-        logger.info("CorrelationEngine stopping — flushing state...")
+        logger.info("CorrelationEngine stopping - flushing state...")
         with self._lock:
             for entity in self._entities.values():
                 try:
@@ -506,7 +506,7 @@ class CorrelationEngine:
                     self._extend_chain(chain, rule, event)
                 return chain
             else:
-                # Window expired — close this chain, start fresh
+                # Window expired - close this chain, start fresh
                 entity.active_chain_id = None
 
         # Start a new chain candidate
@@ -592,7 +592,7 @@ class CorrelationEngine:
         """Increment entity and chain risk scores."""
         delta = _RISK_BY_LEVEL.get(rule.level.lower(), 5)
 
-        # Chain bonus — escalating chains add extra risk
+        # Chain bonus - escalating chains add extra risk
         if chain and chain.link_count >= self._settings.attack_chain_min_rules:
             delta += _RISK_CHAIN_BONUS
 
@@ -608,7 +608,7 @@ class CorrelationEngine:
         """
         Apply time-based risk decay to all entities.
         Called by the background scheduler at decay_interval_hours.
-        Quiet entities cool down — active threats stay hot.
+        Quiet entities cool down - active threats stay hot.
         """
         with self._lock:
             threshold = timedelta(hours=self._settings.risk_decay_interval_hours)
@@ -657,7 +657,7 @@ class CorrelationEngine:
             timestamp  = alert.timestamp,
             entry_type = "alert",
             description= (
-                f"⚠ {alert.rule.title}{chain_ref} — "
+                f"⚠ {alert.rule.title}{chain_ref} - "
                 f"Risk now {entity.risk_score}/100"
             ),
             alert_id   = alert.alert_id,

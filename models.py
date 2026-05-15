@@ -1,6 +1,6 @@
 """
-SIEMulate — Data Models
-models.py — Pydantic schemas for all internal data structures
+SIEMulate - Data Models
+models.py - Pydantic schemas for all internal data structures
 
 Author  : Rayyan Umair
 Date    : 2026-05-13
@@ -143,7 +143,7 @@ class MitreMapping(BaseModel):
 class EntityRef(BaseModel):
     """Lightweight entity reference embedded in every inbound event."""
 
-    name  : str             = Field(..., description="Entity identifier — username, hostname, or IP")
+    name  : str             = Field(..., description="Entity identifier - username, hostname, or IP")
     type  : EntityType      = Field(..., description="Entity type classification")
     host  : Optional[str]   = Field(default=None, description="Host the entity was observed on")
     domain: Optional[str]   = Field(default=None, description="Domain context if applicable")
@@ -274,7 +274,7 @@ class Alert(BaseModel):
 # ── Attack Chain ──────────────────────────────────────────────────────────────
 
 class ChainLink(BaseModel):
-    """A single step in an attack chain — one alert with its stage context."""
+    """A single step in an attack chain - one alert with its stage context."""
 
     position      : int             = Field(..., description="Step number in the chain (1-indexed)")
     alert_id      : str             = Field(...)
@@ -289,7 +289,7 @@ class ChainLink(BaseModel):
 
 class AttackChain(BaseModel):
     """
-    A confirmed attack chain — two or more Sigma rules firing on the
+    A confirmed attack chain - two or more Sigma rules firing on the
     same entity within the correlation window.
 
     This is the primary output of the SIEMulate correlation engine.
