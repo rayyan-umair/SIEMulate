@@ -1,0 +1,308 @@
+[
+  {
+    "timestamp": "2026-05-13T10:00:00Z",
+    "source": "logclaw",
+    "entity": {
+      "actor": "jsmith",
+      "type": "user",
+      "target": "WKSTN-04"
+    },
+    "event": {
+      "type": "auth",
+      "action": "login_failure",
+      "severity": 3,
+      "outcome": "failure"
+    },
+    "mitre": {
+      "technique_id": "T1110",
+      "tactic": "Credential Access"
+    },
+    "raw_payload": {
+      "EventID": "4625",
+      "TargetUserName": "jsmith",
+      "WorkstationName": "WKSTN-04",
+      "IpAddress": "10.0.0.44",
+      "FailureReason": "Unknown user name or bad password",
+      "LogonType": "3"
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:01:15Z",
+    "source": "logclaw",
+    "entity": {
+      "actor": "jsmith",
+      "type": "user",
+      "target": "WKSTN-04"
+    },
+    "event": {
+      "type": "auth",
+      "action": "login_failure",
+      "severity": 3,
+      "outcome": "failure"
+    },
+    "mitre": {
+      "technique_id": "T1110",
+      "tactic": "Credential Access"
+    },
+    "raw_payload": {
+      "EventID": "4625",
+      "TargetUserName": "jsmith",
+      "WorkstationName": "WKSTN-04",
+      "IpAddress": "10.0.0.44",
+      "FailureReason": "Unknown user name or bad password",
+      "LogonType": "3"
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:02:30Z",
+    "source": "logclaw",
+    "entity": {
+      "actor": "jsmith",
+      "type": "user",
+      "target": "WKSTN-04"
+    },
+    "event": {
+      "type": "auth",
+      "action": "login_failure",
+      "severity": 3,
+      "outcome": "failure"
+    },
+    "mitre": {
+      "technique_id": "T1110",
+      "tactic": "Credential Access"
+    },
+    "raw_payload": {
+      "EventID": "4625",
+      "TargetUserName": "jsmith",
+      "WorkstationName": "WKSTN-04",
+      "IpAddress": "10.0.0.44",
+      "FailureReason": "Unknown user name or bad password",
+      "LogonType": "3"
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:04:00Z",
+    "source": "logclaw",
+    "entity": {
+      "actor": "jsmith",
+      "type": "user",
+      "target": "WKSTN-04"
+    },
+    "event": {
+      "type": "auth",
+      "action": "login_success",
+      "severity": 2,
+      "outcome": "success"
+    },
+    "mitre": {
+      "technique_id": "T1078",
+      "tactic": "Initial Access"
+    },
+    "raw_payload": {
+      "EventID": "4624",
+      "TargetUserName": "jsmith",
+      "WorkstationName": "WKSTN-04",
+      "IpAddress": "10.0.0.44",
+      "LogonType": "3",
+      "AuthenticationPackageName": "NTLM"
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:05:22Z",
+    "source": "logclaw",
+    "entity": {
+      "actor": "jsmith",
+      "type": "user",
+      "target": "WKSTN-04"
+    },
+    "event": {
+      "type": "process",
+      "action": "execute",
+      "severity": 7,
+      "outcome": "success"
+    },
+    "mitre": {
+      "technique_id": "T1059.001",
+      "tactic": "Execution"
+    },
+    "raw_payload": {
+      "EventID": "4688",
+      "SubjectUserName": "jsmith",
+      "Computer": "WKSTN-04",
+      "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "CommandLine": "powershell.exe -NoP -NonI -W Hidden -Exec Bypass -Enc JABjAGwAaQBlAG4AdA==",
+      "ParentProcessName": "C:\\Windows\\System32\\cmd.exe",
+      "ImagePath": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:06:10Z",
+    "source": "logclaw",
+    "entity": {
+      "actor": "jsmith",
+      "type": "user",
+      "target": "WKSTN-04"
+    },
+    "event": {
+      "type": "process",
+      "action": "execute",
+      "severity": 8,
+      "outcome": "success"
+    },
+    "mitre": {
+      "technique_id": "T1548.002",
+      "tactic": "Privilege Escalation"
+    },
+    "raw_payload": {
+      "EventID": "4688",
+      "SubjectUserName": "jsmith",
+      "Computer": "WKSTN-04",
+      "NewProcessName": "C:\\Windows\\System32\\cmd.exe",
+      "CommandLine": "cmd.exe /c whoami /priv",
+      "ParentProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "ImagePath": "C:\\Windows\\System32\\cmd.exe"
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:08:45Z",
+    "source": "logclaw",
+    "entity": {
+      "actor": "jsmith",
+      "type": "user",
+      "target": "WKSTN-04"
+    },
+    "event": {
+      "type": "process",
+      "action": "execute",
+      "severity": 9,
+      "outcome": "success"
+    },
+    "mitre": {
+      "technique_id": "T1068",
+      "tactic": "Privilege Escalation"
+    },
+    "raw_payload": {
+      "EventID": "4688",
+      "SubjectUserName": "jsmith",
+      "Computer": "WKSTN-04",
+      "NewProcessName": "C:\\Windows\\Temp\\svchost_upd.exe",
+      "CommandLine": "C:\\Windows\\Temp\\svchost_upd.exe --elevate --persist",
+      "ParentProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "ImagePath": "C:\\Windows\\Temp\\svchost_upd.exe"
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:11:30Z",
+    "source": "logclaw",
+    "entity": {
+      "actor": "jsmith",
+      "type": "user",
+      "target": "WKSTN-04"
+    },
+    "event": {
+      "type": "registry",
+      "action": "modify",
+      "severity": 7,
+      "outcome": "success"
+    },
+    "mitre": {
+      "technique_id": "T1547.001",
+      "tactic": "Persistence"
+    },
+    "raw_payload": {
+      "EventID": "4657",
+      "SubjectUserName": "jsmith",
+      "Computer": "WKSTN-04",
+      "ObjectName": "\\REGISTRY\\MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "ObjectValueName": "WindowsUpdate",
+      "NewValue": "C:\\Windows\\Temp\\svchost_upd.exe"
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:14:00Z",
+    "source": "packetstrike",
+    "entity": {
+      "actor": "10.0.0.44",
+      "type": "ip",
+      "target": "10.0.0.1"
+    },
+    "event": {
+      "type": "network",
+      "action": "connect",
+      "severity": 8,
+      "outcome": "success"
+    },
+    "mitre": {
+      "technique_id": "T1021.002",
+      "tactic": "Lateral Movement"
+    },
+    "raw_payload": {
+      "src_ip": "10.0.0.44",
+      "dst_ip": "10.0.0.1",
+      "dst_port": 445,
+      "protocol": "TCP",
+      "bytes_sent": 48210,
+      "strike_type": "STRIKE-004",
+      "evidence": "internal_pivot:10.0.0.44:5_internal_hosts"
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:16:20Z",
+    "source": "packetstrike",
+    "entity": {
+      "actor": "10.0.0.44",
+      "type": "ip",
+      "target": "185.220.101.34"
+    },
+    "event": {
+      "type": "network",
+      "action": "connect",
+      "severity": 10,
+      "outcome": "success"
+    },
+    "mitre": {
+      "technique_id": "T1071.001",
+      "tactic": "Command & Control"
+    },
+    "raw_payload": {
+      "src_ip": "10.0.0.44",
+      "dst_ip": "185.220.101.34",
+      "dst_port": 443,
+      "protocol": "TCP",
+      "bytes_sent": 1240,
+      "strike_type": "STRIKE-005",
+      "evidence": "known_bad:10.0.0.44→185.220.101.34:intel_match",
+      "beacon_interval_s": 30.0,
+      "beacon_cv": 0.011
+    }
+  },
+  {
+    "timestamp": "2026-05-13T10:18:05Z",
+    "source": "packetstrike",
+    "entity": {
+      "actor": "10.0.0.44",
+      "type": "ip",
+      "target": "185.220.101.34"
+    },
+    "event": {
+      "type": "network",
+      "action": "transfer",
+      "severity": 10,
+      "outcome": "success"
+    },
+    "mitre": {
+      "technique_id": "T1041",
+      "tactic": "Exfiltration"
+    },
+    "raw_payload": {
+      "src_ip": "10.0.0.44",
+      "dst_ip": "185.220.101.34",
+      "dst_port": 443,
+      "protocol": "TCP",
+      "bytes_sent": 157286400,
+      "strike_type": "STRIKE-003",
+      "evidence": "high_outbound:10.0.0.44→185.220.101.34:150.0MB:port=443",
+      "dlp_hits": ["RSA_PRIVATE_KEY", "SQL_SELECT_STAR"]
+    }
+  }
+]
