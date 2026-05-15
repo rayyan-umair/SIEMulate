@@ -1,6 +1,6 @@
 """
-SIEMulate — API Layer
-api.py — FastAPI server, WebSocket streaming, REST endpoints
+SIEMulate - API Layer
+api.py - FastAPI server, WebSocket streaming, REST endpoints
 
 Author  : Rayyan Umair
 Date    : 2026-05-13
@@ -9,7 +9,7 @@ Purpose : The external interface of SIEMulate. Exposes a FastAPI
           entities, and rules, plus a WebSocket endpoint that streams
           alert events to connected dashboard clients in real time.
           Replay jobs are started and monitored via REST.
-          All business logic lives in the engine layers — the API
+          All business logic lives in the engine layers - the API
           only reads, formats, and streams. No analysis happens here.
 Contact : rayyanxumair@gmail.com
 GitHub  : github.com/rayyan-umair/SIEMulate
@@ -127,7 +127,7 @@ def create_app(
     """
     Build and return the FastAPI application and WebSocket manager.
     Called once from main.py at startup.
-    All engine references are injected — the API layer owns nothing.
+    All engine references are injected - the API layer owns nothing.
     """
 
     app = FastAPI(

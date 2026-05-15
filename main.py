@@ -1,6 +1,6 @@
 """
-SIEMulate — Entry Point
-main.py — Application bootstrap, pipeline wiring, startup/shutdown
+SIEMulate - Entry Point
+main.py - Application bootstrap, pipeline wiring, startup/shutdown
 
 Author  : Rayyan Umair
 Date    : 2026-05-13
@@ -109,7 +109,7 @@ class RuleReloadScheduler:
         )
         self._thread.start()
         logger.info(
-            f"RuleReloadScheduler started — "
+            f"RuleReloadScheduler started - "
             f"interval={self._interval}s"
         )
 
@@ -131,7 +131,7 @@ class RuleReloadScheduler:
 class RiskDecayScheduler:
     """
     Applies risk score decay to all entities on a configurable interval.
-    Quiet entities cool down — active threats stay elevated.
+    Quiet entities cool down - active threats stay elevated.
     """
 
     def __init__(
@@ -153,7 +153,7 @@ class RiskDecayScheduler:
         )
         self._thread.start()
         logger.info(
-            f"RiskDecayScheduler started — "
+            f"RiskDecayScheduler started - "
             f"interval={self._interval // 3600}h"
         )
 
@@ -191,7 +191,7 @@ class ArchiveScheduler:
         )
         self._thread.start()
         logger.info(
-            f"ArchiveScheduler started — "
+            f"ArchiveScheduler started - "
             f"interval={self._interval // 3600}h"
         )
 
@@ -207,7 +207,7 @@ class ArchiveScheduler:
                 alerts_archived = self._db.archive_old_alerts()
                 chains_archived = self._db.archive_old_chains()
                 logger.info(
-                    f"Archive complete — "
+                    f"Archive complete - "
                     f"alerts={alerts_archived} chains={chains_archived}"
                 )
             except Exception as e:
@@ -250,7 +250,7 @@ class SIEMulate:
     # ── Startup ───────────────────────────────────────────────────────────────
 
     def startup(self) -> None:
-        """Full startup sequence — called before uvicorn begins serving."""
+        """Full startup sequence - called before uvicorn begins serving."""
         print(_BANNER)
 
         logger.info("=" * 60)
@@ -283,7 +283,7 @@ class SIEMulate:
         self._risk_decay.start()
         self._archive.start()
 
-        logger.info("Startup complete — SIEMulate ready.")
+        logger.info("Startup complete - SIEMulate ready.")
 
     def build_app(self):
         """Build the FastAPI app after startup() completes."""
@@ -330,7 +330,7 @@ class SIEMulate:
     # ── Shutdown ──────────────────────────────────────────────────────────────
 
     def shutdown(self) -> None:
-        """Graceful shutdown — flushes all state to DuckDB."""
+        """Graceful shutdown - flushes all state to DuckDB."""
         logger.info("SIEMulate shutting down...")
 
         if self._replay and self._replay.is_running:
@@ -357,7 +357,7 @@ def main() -> None:
     app = app_instance.build_app()
 
     def _handle_signal(sig, frame):
-        logger.info(f"Signal {sig} received — initiating shutdown.")
+        logger.info(f"Signal {sig} received - initiating shutdown.")
         app_instance.shutdown()
         sys.exit(0)
 
