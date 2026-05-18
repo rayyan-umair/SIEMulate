@@ -3,7 +3,7 @@ SIEMulate - Sigma Detection Engine
 sigma_engine.py - Sigma rule loading, parsing, and event matching
 
 Author  : Rayyan Umair
-Date    : 2026-05-13
+Date    : 13 May, 2026
 Purpose : Loads Sigma YAML rules from disk via pySigma, compiles them
           into an in-memory rule registry, and evaluates every inbound
           event against all loaded rules. Returns a list of matching

@@ -4,7 +4,7 @@ correlation.py - Entity state tracking, attack chain detection,
                  risk scoring, escalation narratives, 5W+H generation
 
 Author  : Rayyan Umair
-Date    : 2026-05-13
+Date    : 13 May, 2026
 Purpose : The judgment layer of SIEMulate. Receives Alert objects from
           the detection pipeline and determines whether they form part
           of a larger attack chain. Maintains live entity profiles,

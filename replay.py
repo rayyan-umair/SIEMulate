@@ -3,7 +3,7 @@ SIEMulate - Replay Engine
 replay.py - Historic log replay, fast-forward simulation, rule regression
 
 Author  : Rayyan Umair
-Date    : 2026-05-13
+Date    : 13 May, 2026
 Purpose : Baked into the main pipeline. Accepts a historic JSON log
           file, parses it into InboundEvents, and fast-forwards them
           through the identical detection and correlation pipeline used

@@ -3,7 +3,7 @@ SIEMulate - Database Layer
 database.py - DuckDB persistence, schema management, Parquet archiving
 
 Author  : Rayyan Umair
-Date    : 2026-05-13
+Date    : 13 May, 2026
 Purpose : All storage operations for SIEMulate. DuckDB acts as the
           persistent intelligence store - fast enough for real-time
           alert ingestion, powerful enough for SQL JOINs between

@@ -3,7 +3,7 @@ SIEMulate - Configuration
 config.py - Settings, environment variables, .env file loading
 
 Author  : Rayyan Umair
-Date    : 2026-05-13
+Date    : 13 May, 2026
 Purpose : Centralised configuration for SIEMulate. All settings are
           read from environment variables or a .env file with sensible
           defaults. Every setting is documented. Nothing is hardcoded
