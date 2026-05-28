@@ -51,7 +51,7 @@ from models import (
     Alert,
     HealthResponse,
     InboundEvent,
-    EntitySource,
+    EventSource,
     EventSource,
     RiskLevel,
 )
