@@ -14,9 +14,9 @@ Purpose : The judgment layer of SIEMulate. Receives Alert objects from
           No Sigma logic lives here. No storage logic lives here.
           This layer only correlates, scores, and narrates.
 
-          # NetRaptor integration hook:
+          # REXDR integration hook:
           # When the shared core is built, replace the in-memory
-          # entity registry with the NetRaptor entity engine.
+          # entity registry with the REXDR entity engine.
           # The correlation logic and chain detection remain intact.
 
 Contact : rayyanxumair@gmail.com
@@ -25,7 +25,7 @@ GitHub  : github.com/rayyan-umair/SIEMulate
 "Context is the only defense."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Part of the NetRaptor ecosystem.
+  Part of the REXDR ecosystem.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 

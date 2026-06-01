@@ -14,7 +14,7 @@ GitHub  : github.com/rayyan-umair/SIEMulate
 "Context is the only defense."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Part of the NetRaptor ecosystem.
+  Part of the REXDR ecosystem.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
@@ -182,7 +182,7 @@ class Settings(BaseSettings):
         description="Number of log events to process per replay tick",
     )
 
-    # ── Integration - NetRaptor Ecosystem ─────────────────────────────────────
+    # ── Integration - REXDR Ecosystem ─────────────────────────────────────
 
     logclaw_api: str = Field(
         default="http://localhost:8000",

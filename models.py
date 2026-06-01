@@ -14,7 +14,7 @@ GitHub  : github.com/rayyan-umair/SIEMulate
 "Context is the only defense."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Part of the NetRaptor ecosystem.
+  Part of the REXDR ecosystem.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
@@ -165,8 +165,8 @@ class InboundEvent(BaseModel):
     Replay Engine is normalised into this structure before
     being evaluated against Sigma rules.
 
-    # NetRaptor integration hook:
-    # This schema is intentionally compatible with the NetRaptor
+    # REXDR integration hook:
+    # This schema is intentionally compatible with the REXDR
     # universal event schema. Field names match exactly for
     # direct mapping when the shared core is built.
     """
@@ -349,8 +349,8 @@ class EntityProfile(BaseModel):
     A tracked entity in the SIEMulate correlation engine.
     Entities accumulate risk, alerts, and chain history over time.
 
-    # NetRaptor integration hook:
-    # EntityProfile maps directly to the NetRaptor universal
+    # REXDR integration hook:
+    # EntityProfile maps directly to the REXDR universal
     # EntityProfile schema. Field names are intentionally compatible.
     """
 

@@ -274,9 +274,9 @@ Supported providers:
 
 ---
 
-# NetRaptor Ecosystem
+# REXDR Ecosystem
 
-SIEMulate is the **detection intelligence layer** of the NetRaptor platform.
+SIEMulate is the **detection intelligence layer** of the REXDR platform.
 
 It consumes behavioral data from:
 
@@ -289,7 +289,7 @@ And feeds enriched attack context to:
 * **TalonResponse** - incident response terminal
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Part of the NetRaptor ecosystem.
+Part of the REXDR ecosystem.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ---

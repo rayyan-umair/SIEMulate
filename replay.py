@@ -20,7 +20,7 @@ GitHub  : github.com/rayyan-umair/SIEMulate
 "Context is the only defense."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Part of the NetRaptor ecosystem.
+  Part of the REXDR ecosystem.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
@@ -62,7 +62,7 @@ def _normalise_raw_event(raw: Dict[str, Any], index: int) -> Optional[InboundEve
     Normalise a raw JSON log entry into an InboundEvent.
 
     Supports multiple common log formats:
-      - NetRaptor universal schema (LogClaw / PacketStrike output)
+      - REXDR universal schema (LogClaw / PacketStrike output)
       - Windows Event Log JSON export
       - Generic syslog JSON
       - Flat key-value dicts
@@ -377,7 +377,7 @@ class ReplayEngine:
             if not events:
                 raise ValueError(
                     "No events could be normalised from the replay file. "
-                    "Check the file format matches the NetRaptor schema."
+                    "Check the file format matches the REXDR schema."
                 )
 
             # ── Sort by timestamp ─────────────────────────────────────────────

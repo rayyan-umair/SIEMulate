@@ -23,7 +23,7 @@ GitHub  : github.com/rayyan-umair/SIEMulate
 "Context is the only defense."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Part of the NetRaptor ecosystem.
+  Part of the REXDR ecosystem.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
@@ -79,7 +79,7 @@ _BANNER = """
 │   ╚══════╝╚═╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝  ╚═╝   ╚══════╝│
 │                                                                 │
 │   "Context is the only defense."                                │
-│   Part of the NetRaptor ecosystem.                              │
+│   Part of the REXDR ecosystem.                              │
 │   Built by Rayyan Umair                                         │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
